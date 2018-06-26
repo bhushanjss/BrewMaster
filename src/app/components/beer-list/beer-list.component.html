@@ -1,6 +1,6 @@
 <div class="beers-list">
 	<h4>Search Results</h4>
-	<div *ngFor="let item of beerLists">
+	<div *ngFor="let item of beerLists$">
 	<app-beer-list-item
 		[name]="item.name"
 		[details]="item.details"
