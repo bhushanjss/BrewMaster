@@ -1,3 +1,17 @@
-<p>
-  beer-search works!
-</p>
+<div class="beer-search">
+	<h4>Search</h4>
+	<form class="row justify-content-m-around">
+		<input class="search-input col-xs-12 col-md-3" type="text" placeholder="Search" name="search">
+	  	<div class="form-group col-xs-12 col-md-3">
+			<div class="form-check form-check-inline">
+		  	<input class="form-check-input" type="radio" name="search-type" id="beer" value="Beer">
+		  	<label class="form-check-label" for="beer">Beer</label>
+			</div>
+			<div class="form-check form-check-inline">
+			  <input class="form-check-input" type="radio" name="search-type" id="brewery" value="Brewery">
+			  <label class="form-check-label" for="brewery">Brewery</label>
+			</div>
+	  	</div>
+	  	<button type="button" class="btn btn-primary col-xs-12 col-md-3 offset-md-2">Search</button>
+	</form>
+</div>
