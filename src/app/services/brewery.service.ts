@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+}
 
 @Injectable()
-export class BreweryService {
+export class BreweryService {	
   
   beerLists = [
   {
@@ -22,13 +26,15 @@ export class BreweryService {
   },
   ];
 
+  apiURL = "http://api.brewerydb.com/v2/beers?abv=5&key=bf400561b993d3a1e281916f00df36c7&withBreweries=Y";
+
   constructor(private http: HttpClient) { }
 
-  getRandomBrew() {
-  	return this.beerLists[0];
+  getRandomBrew(): any {
+  	return this.http.get(this.apiURL, httpOptions);
   }
 
-  getListOfBeers() {
-  	return this.beerLists;
+  getBeersList(): any {
+    return this.beerLists;
   }
 }

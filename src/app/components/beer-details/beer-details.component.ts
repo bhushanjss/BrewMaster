@@ -15,10 +15,36 @@ export default class BeerDetailsComponent implements OnInit {
   imgSrc: string;
 
   ngOnInit() {
-  	const item = this.breweryService.getRandomBrew();
-  	this.name = item.name;
-  	this.details = item.details;
-  	this.imgSrc = item.imgSrc;
+    this.loadRandomBeer();
+  }
+
+  loadRandomBeer() {
+    this.breweryService.getRandomBrew().subscribe( res => {
+      if(res && res.data) {
+        let count = 0;
+        let item = this.getNextRandomBeer(res.data);
+        while(!item.description || !item.labels) {
+          item = this.getNextRandomBeer(res.data);
+          count ++;
+          if(count > res.data.length) {
+            break;
+          }
+        }
+        this.name = item.name;
+        this.details = item.description;
+        this.imgSrc = item.labels.medium;   
+      }
+    }
+    );
+  }
+
+  getNextRandomBeer(data) {
+      const idx = this.getRandomInt(data.length);
+      return data[idx];
+  }
+
+  getRandomInt(max) {
+	  return Math.floor(Math.random() * Math.floor(max));
   }
 
 }
