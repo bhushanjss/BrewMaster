@@ -17,3 +17,9 @@ form {
     padding: 5px 20px;
 }
 
+.alert {
+    margin-left: 15px;
+    margin-top: 20px;
+    font-size: 12px;
+    padding: 12px 0;
+}

@@ -1,19 +1,23 @@
 <div class="beer-search">
 	<h4>Search</h4>
 	<form #form="ngForm" class="row justify-content-m-around">
-		<input class="search-input col-xs-12 col-md-3" type="text" [ngModel]="name" placeholder="Search" name="search">
+		<input id="search" class="search-input col-xs-12 col-md-3" type="text" [ngModel]="name" placeholder="Search" name="search" #search="ngModel" [pattern]="'[a-zA-Z0-9\-\s]+'">
 	  	<div class="form-group col-xs-12 col-md-3">
 			<div class="form-check form-check-inline">
-		  	<input class="form-check-input" [(ngModel)]="searchType" type="radio" name="searchType" id="beer" value="Beer">
-		  	<label class="form-check-label" for="beer">Beer</label>
+			  	<input class="form-check-input" [ngModel]="searchType" type="radio" name="searchType" 
+			  	value="beer">
+			  	<label class="form-check-label" for="beer">Beer</label>
 			</div>
 			<div class="form-check form-check-inline">
-			  <input class="form-check-input"  [(ngModel)]="searchType" type="radio" name="searchType" id="brewery" value="Brewery">
+			  <input class="form-check-input" [ngModel]="searchType" type="radio" name="searchType" value="brewery">
 			  <label class="form-check-label" for="brewery">Brewery</label>
 			</div>
 	  	</div>
-	  	<button type="button" (click)="search(form.value)" class="btn btn-primary col-xs-12 col-md-3 offset-md-2">Search</button>
+	  	<button type="button" [disabled]="search.invalid" (click)="search(form.value)" class="btn btn-primary col-xs-12 col-md-3 offset-md-2">Search</button>
 	</form>
+	<div *ngIf="search.invalid" class="col-xs-12 col-md-3 alert alert-danger">
+    	Only letters, numbers, hyphens and spaces are allowed.
+	</div>
 </div>
 
 <app-beer-list
