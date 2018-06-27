@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { BreweryService } from '../../services/brewery.service';
 
@@ -11,7 +11,7 @@ export default class BeerListComponent implements OnInit {
 
   constructor(private breweryService: BreweryService) { }
 
-  beerLists$ =  this.breweryService.getBeersList();
+  @Input() beersList;
 
   ngOnInit() {
 
