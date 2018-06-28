@@ -8,23 +8,7 @@ const httpOptions = {
 @Injectable()
 export class BreweryService {	
   
-  beerLists = [
-  {
-  	name: 'beer 1',
-  	details: 'beer 1',
-  	imgSrc: 'https://www.guinness.com/media/1538/guinness_draught_spritzr06bg1_resized_1600-h.jpg',
-  },
-  {
-  	name: 'beer 1',
-  	details: 'beer 1',
-  	imgSrc: 'https://www.guinness.com/media/1538/guinness_draught_spritzr06bg1_resized_1600-h.jpg',
-  },
-  {
-  	name: 'beer 1',
-  	details: 'beer 1',
-  	imgSrc: 'https://www.guinness.com/media/1538/guinness_draught_spritzr06bg1_resized_1600-h.jpg',
-  },
-  ];
+  beerLists = [];
 
   apiURL = "http://api.brewerydb.com/v2";
   apiKey = "bf400561b993d3a1e281916f00df36c7";
@@ -33,10 +17,6 @@ export class BreweryService {
 
   getRandomBrew(): any {
   	return this.http.get(`${this.apiURL}/beers?key=${this.apiKey}&abv=5&withBreweries=Y`, httpOptions);
-  }
-
-  getBeersList(): any {
-    return this.beerLists;
   }
 
   searchBeers(query: string, type: string): any {
