@@ -4,7 +4,7 @@
 	<app-beer-list-item
 		[name]="item.name"
 		[details]="item.description"
-		[imgSrc]="item.labels.icon"
+		[imgSrc]="item.labels ? item.labels.icon : item.images ? item.images.icon : ''"
 		>			
 	</app-beer-list-item>
 	</div>

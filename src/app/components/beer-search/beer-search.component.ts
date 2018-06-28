@@ -17,12 +17,12 @@ export default class BeerSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(form) {
+  searchBeer(form) {
   	this.breweryService.searchBeers(form.search, form.searchType).subscribe( res => {
 	  this.beerList = [];
       if(res && res.data) { 
       	res.data.map(item => {
-      		if(item.description && item.labels) {
+      		if(item.description && (item.labels || item.images)) {
       			this.beerList.push(item);
       		}
       	});

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BeerDetailsComponent } from './beer-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import  BeerDetailsComponent  from './beer-details.component';
+import { BreweryService } from '../../services/brewery.service';
 
 describe('BeerDetailsComponent', () => {
   let component: BeerDetailsComponent;
@@ -8,7 +9,11 @@ describe('BeerDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeerDetailsComponent ]
+      declarations: [ BeerDetailsComponent ],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [BreweryService]
     })
     .compileComponents();
   }));
@@ -19,7 +24,7 @@ describe('BeerDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });
