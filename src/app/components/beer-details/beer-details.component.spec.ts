@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import  BeerDetailsComponent  from './beer-details.component';
 import { BreweryService } from '../../services/brewery.service';
+import { BreweryServiceMock } from '../../services/brewery-service-mock';
 
 describe('BeerDetailsComponent', () => {
   let component: BeerDetailsComponent;
@@ -13,16 +14,16 @@ describe('BeerDetailsComponent', () => {
       imports: [
         HttpClientModule
       ],
-      providers: [BreweryService]
+      providers: [{
+        provide: BreweryService, useClass: BreweryServiceMock
+      }]
     })
-    .compileComponents();
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(BeerDetailsComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BeerDetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
