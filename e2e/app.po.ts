@@ -8,4 +8,45 @@ export class AppPage {
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
+
+  beerDetailsTitle() {
+    return element(by.css('beer-details h5'));
+  }
+
+  beerDetailsDescription() {
+    return element(by.css('beer-details p'));
+  }
+
+  anotherBeer() {
+	return element(by.css('app-beer-details another-beer'));
+  }	
+
+  moreBeer() {
+	return element(by.css('app-beer-details more-beer'));
+  }
+
+  searchTitle() {
+  	return element(by.css('app-beer-details beer-details more-beer'));
+  }
+
+  searchInput() {
+  	return element(by.css('app-beer-search form search-input'));
+  }
+
+  searchRadioButtons() {
+  	return element(by.css('app-beer-search form-check-input'));
+  }
+
+  searchButton() {
+  	return element(by.css('app-beer-search search-button button'))
+  }
+
+  searchResultsTitle() {
+  	return element(by.css('app-beer-list h4')).getText();
+  }
+
+  searchResults() {
+  	return element(by.css('app-beer-list beer-list-item'));
+  }
+
 }
