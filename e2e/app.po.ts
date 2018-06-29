@@ -6,39 +6,39 @@ export class AppPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-root h1'));
   }
 
   beerDetailsTitle() {
-    return element(by.css('beer-details h5'));
+    return element(by.css('.beer-details h5'));
   }
 
   beerDetailsDescription() {
-    return element(by.css('beer-details p'));
+    return element(by.css('.beer-details p'));
   }
 
   anotherBeer() {
-	return element(by.css('app-beer-details another-beer'));
+	return element(by.css('app-beer-details .another-beer'));
   }	
 
   moreBeer() {
-	return element(by.css('app-beer-details more-beer'));
+	return element(by.css('app-beer-details .more-beer'));
   }
 
   searchTitle() {
-  	return element(by.css('app-beer-details beer-details more-beer'));
+  	return element(by.css('app-beer-search h4')).getText();
   }
 
   searchInput() {
-  	return element(by.css('app-beer-search form search-input'));
+  	return element(by.css('app-beer-search form .search-input'));
   }
 
   searchRadioButtons() {
-  	return element(by.css('app-beer-search form-check-input'));
+  	return element(by.css('app-beer-search .form-check-input'));
   }
 
   searchButton() {
-  	return element(by.css('app-beer-search search-button button'))
+  	return element(by.css('app-beer-search .search-button button'))
   }
 
   searchResultsTitle() {
@@ -46,7 +46,7 @@ export class AppPage {
   }
 
   searchResults() {
-  	return element(by.css('app-beer-list beer-list-item'));
+  	return element(by.css('app-beer-list .beer-list-item'));
   }
 
 }
